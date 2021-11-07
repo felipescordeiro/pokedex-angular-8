@@ -1,0 +1,55 @@
+.content {
+  padding: 16px;
+}
+
+@media screen and (max-width: 379px) {
+
+  .content > mat-card {
+    width: 80%;
+    height: 100%;
+  }
+
+  mat-form-field {
+    margin-left: 6% !important;
+  }
+}
+
+mat-card {
+  height: 100%;
+  width: 200px;
+}
+
+mat-form-field {
+  margin-left: 2%;
+}
+
+#search-text {
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+#search-icon {
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 1.6em;
+  border-radius: 10px;
+  border: 1px solid black;
+  background: orange;
+}
+
+.flex-card {
+  display: inline-grid;
+  flex-flow: row wrap;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.img-pokemon {
+  background: #F2F2F2;
+}
+
+.type-pokemon {
+  margin-right: 10px;
+  width: 70px;
+}
+

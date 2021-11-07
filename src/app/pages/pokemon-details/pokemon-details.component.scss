@@ -1,0 +1,195 @@
+.content {
+  margin: 16px !important;
+}
+
+#header{
+  margin-left: 20px;
+  #home {
+    background-color: black ;
+    color: white;
+    width: 30%;
+    height: 30px;
+    border-radius: 10px;
+    text-decoration: underline;
+  }
+
+  #next-pokemon {
+    float: right;
+    background-color: black ;
+    color: white;
+    width: 30%;
+    height: 30px;
+    border-radius: 10px;
+    text-decoration: underline;
+  }
+
+}
+
+#pokemon {
+  margin: 10px;
+  text-align: center;
+  background-color: white ;
+  color: black;
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+}
+
+#section-left {
+  float: left;
+  width: 50%;
+}
+
+#section-right {
+  float: right;
+  width: 40%;
+}
+
+.pokemon-left {
+  margin-top: 40px;
+  height: 100%;
+}
+
+.general-infos {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.img-pokemon {
+  background: #F2F2F2;
+  margin-left: 20px;
+  max-width: 90%;
+  height: 180%;
+}
+
+.col-left {
+  float: left;
+  width: 50%;
+}
+
+.col-right {
+  float: left;
+  width: 50%;
+}
+
+#version {
+  padding: 15px 15px 15px 0px;
+}
+
+#more-informations {
+  .mat-card {
+    background: #30a7d7 !important;
+    color: rgba(0,0,0,.87);
+    border-radius: 10px;
+    height: 100%;
+    h4 {
+      color: #fff;
+    }
+  }
+
+  .mat-card-actions, .mat-card-content, .mat-card-subtitle {
+    height: 70%;
+    width: 100%;
+  }
+}
+
+
+#stats {
+  margin-left: 20px;
+}
+
+#type {
+  margin-top: 10px;
+}
+
+
+.type-pokemon {
+  margin: 10px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+@media (max-width: 720px) {
+
+  #section-left {
+    clear: float;
+    width: 100%;
+  }
+
+  #section-right {
+    clear: float;
+    width: 100%;
+  }
+
+  .pokemon-left {
+    clear: left;
+    width: 100%;
+  }
+
+  #stats {
+    clear: left;
+  }
+
+  .general-infos {
+    width: 100%;
+
+    mat-label {
+      padding-left: 15px;
+    }
+  }
+
+  #version {
+    padding: 10px 0px 10px;
+  }
+
+  .more-informations {
+    clear: right;
+  }
+
+  #type {
+    text-align: center;
+    clear: both !important;
+  }
+
+  #weaknesses {
+    clear: right;
+    text-align: center;
+  }
+
+  #evolution {
+    mat-card {
+      width: 90% !important;
+      height: 100%;
+    }
+  }
+}
+
+
+
+#evolution {
+  clear: both;
+
+  padding: 16px;
+  .flex-card {
+    display: inline-grid;
+    flex-flow: row wrap;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  mat-card {
+    height: 100%;
+    width: 200px;
+  }
+
+  .img-evolution-pokemon {
+    background: #F2F2F2;
+  }
+
+  .type-evolution-pokemon {
+    margin-right: 10px;
+    width: 70px;
+  }
+}
+
+

@@ -1,0 +1,113 @@
+<div class="content" *ngIf="pokemon" >
+
+  <section id="header">
+    <button id="home" routerLink="" mat-icon-button color="primary" aria-label="Ir para home">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button id="next-pokemon" [routerLink]="['/pokemon-details/', nextPokemon]" (click)="goToNextPokemon()"  mat-button color="primary">Next: Nº {{pokemon.id + 1}}</button>
+
+  </section>
+  <button id="pokemon" mat-icon-button color="primary" aria-label="Ir para proximo pokemon">
+    {{pokemon.name}} Nº {{pokemon.id}}
+  </button>
+
+  <div id="section-left">
+    <div class="pokemon-left">
+      <img mat-card-image class="img-pokemon" src="{{getImg(pokemon)}}">
+    </div>
+
+    <div id="stats">
+      <h3>Stats</h3>
+      <div *ngFor="let stat of pokemon.stats">
+        {{stat.stat.name}}: <mat-progress-bar
+          class="example-margin"
+          mode = 'determinate'
+          [value]="stat.base_stat"
+          bufferValue="100">
+        </mat-progress-bar>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="section-right">
+    <div class="general-infos">
+      <mat-label>{{flavorText}}</mat-label>
+      <div id="version">
+        <mat-label>Versions:
+          <mat-icon [ngStyle]="{color: flavor.version.name == 'crystal' ? 'blue' : 'red'}"
+          aria-hidden="false" aria-label="Versões do pokemon"
+          *ngFor="let flavor of getVersionIsEnAndOnlyCrystalAndFirered()"
+          (click)="changeFlavorText(flavor)">circle
+          </mat-icon>
+        </mat-label>
+      </div>
+
+    </div>
+
+
+    <div id="more-informations">
+      <mat-card>
+
+        <mat-card-content class="card-info">
+
+          <div class="col-left">
+            <h4>Height</h4>
+            <p>{{pokemon.height/10}} m</p>
+          </div>
+          <div class="col-right">
+            <h4>Categoria</h4>
+            <p>teste</p>
+          </div>
+
+          <div class="col-left">
+            <h4>Weight</h4>
+            <p>{{pokemon.weight/10}} kg</p>
+          </div>
+          <div class="col-right">
+            <h4>Abilities</h4>
+            <p > <span *ngFor="let ability of pokemon.abilities; let i = index"> {{ability.ability.name}}</span> </p>
+          </div>
+
+          <div class="col-left">
+            <h4>Gender</h4>
+            <p >
+              <mat-icon aria-hidden="false" aria-label="Sexo" *ngFor="let gender of pokemon.gender; let i = index">{{gender.gender}}</mat-icon>
+            </p>
+          </div>
+
+          <div class="col-right">
+            <h4></h4>
+            <p ></p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+
+    <div id="type">
+      <h4>Type</h4>
+      <button mat-button *ngFor="let type of pokemon.types" [ngStyle]="{background: getBackgroundColor(type.type.name)}" class="type-pokemon">{{type.type.name}}</button>
+    </div>
+
+    <div id="weaknesses" *ngIf="types" >
+      <h4>Weaknesses</h4>
+      <button mat-button *ngFor="let type of weaknesses" [ngStyle]="{background: getBackgroundColor(type.name)}" class="type-pokemon">{{type.name}}</button>
+    </div>
+  </div>
+
+  <section id="evolution">
+    <h4>Evolutions</h4>
+    <mat-card  *ngFor="let evolution of pokemonToEvolution" [routerLink]="['/pokemon-details/', evolution.name]" >
+      <img mat-card-image class="img-evolution-pokemon" src="{{getImg(evolution)}}">
+      <mat-card-subtitle>Nº{{evolution.id}}</mat-card-subtitle>
+      <mat-card-title>{{evolution.name}}</mat-card-title>
+      <mat-card-actions>
+        <button mat-button *ngFor="let type of evolution.types" [ngStyle]="{background: getBackgroundColor(type.type.name)}"  class="type-evolution-pokemon">{{type.type.name}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+
+</div>
