@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PokemonsService } from 'src/app/services/pokemon/pokemons.service';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { Pokemon } from './../../../model/pokemon';
 import { UtilsService } from 'src/app/services/utils/utils.service';
@@ -32,6 +31,7 @@ export class PokemonDetailsComponent implements OnInit {
       this.pokemon = this._router.getCurrentNavigation().extras.state.pokemon;
       this.getMoreInfosPokemon();
     } else {
+      console.log(this._activatedRoute.snapshot.paramMap)
       let name = this._activatedRoute.snapshot.paramMap.get('name');
       console.log(name);
       this.getPokemonByName(name);

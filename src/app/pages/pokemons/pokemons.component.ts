@@ -59,7 +59,7 @@ export class PokemonsComponent implements OnInit {
   }
 
   setPokemonsList(pokemons) {
-    pokemons.forEach(pokemonList => {
+    pokemons.forEach((pokemonList, index ) => {
       this.getPokemonByUrl(pokemonList.url).subscribe((pokemon) => {
         let iPokemonsList = {
           name: pokemonList.name,
@@ -67,7 +67,12 @@ export class PokemonsComponent implements OnInit {
           pokemon: pokemon
         }
         this.pushPokemonList(iPokemonsList);
+        //console.log(index, pokemons.length -1)
+        if (index == pokemons.length -1 ) {
+          this.orderById();
+        }
       });
+
     });
   }
 
@@ -82,7 +87,13 @@ export class PokemonsComponent implements OnInit {
   }
 
   pushPokemonList(pokemon) {
+    console.log(pokemon);
+
     this.pokemons.push(pokemon);
+  }
+
+  orderById() {
+    this.pokemons.sort((a, b) => (a.pokemon.id - b.pokemon.id));
   }
 
   goToPokemon(pokemon: Pokemon) {
